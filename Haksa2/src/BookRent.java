@@ -68,16 +68,23 @@ public class BookRent extends JPanel{
 //					query += " and s.dept = '일어일문학' order by br.no";
 //				}
 				
-				if(si==0) {   //전체
-					query += " order by br.no";
-				} else if(si==1) {   //컴퓨터시스템
-					query += " and s.dept = '컴퓨터시스템' order by br.no";
-				} else if(si==2) {   //멀티미디어
-					query += " and s.dept = '멀티미디어' order by br.no";
-				} else if(si==3) {   //컴퓨터공학
-					query += " and s.dept = '컴퓨터공학' order by br.no";
-				}
+//				if(si==0) {   //전체
+//					query += " order by br.no";
+//				} else if(si==1) {   //컴퓨터시스템
+//					query += " and s.dept = '컴퓨터시스템' order by br.no";
+//				} else if(si==2) {   //멀티미디어
+//					query += " and s.dept = '멀티미디어' order by br.no";
+//				} else if(si==3) {   //컴퓨터공학
+//					query += " and s.dept = '컴퓨터공학' order by br.no";
+//				}
 				
+				for(int i = 0 ; i < dept.length+1 ; i++) {
+				if(si==0) {   //전체
+						query += " order by br.no";
+					} else if(si==i) {
+						query += " and s.dept = '"+dept[i]+"' order by br.no";
+					}
+				}
 				//검색목록
 				list();
 				

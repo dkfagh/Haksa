@@ -1,3 +1,5 @@
+import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,6 +34,8 @@ public class Haksa2 extends JFrame {
 		
 		this.setTitle("학사관리");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		Container c = getContentPane();
+//		c.setLayout(new FlowLayout());
 		
 		JMenuBar mb = new JMenuBar();
 		JMenu Menu1 = new JMenu("학생관리");
@@ -74,10 +78,13 @@ public class Haksa2 extends JFrame {
 				panel.removeAll();    // 모든 컴포넌트 삭제
 				panel.revalidate();   // 다시 활성화
 				panel.repaint();      // 다시 그리기
-				panel.add(new PieChart());   // 화면 생성
+				panel.add(new Chart());   // 화면 생성
 				panel.setLayout(null);   // 레이아웃 적용 안함
 			}
 		});
+		
+		ImageIcon main = new ImageIcon("img/img01.jpg");
+		JLabel mainImage = new JLabel(main);
 		
 		Menu1.add(item1);
 		mb.add(Menu1);
@@ -87,6 +94,7 @@ public class Haksa2 extends JFrame {
 		mb.add(Menu2);
 		
 		this.setJMenuBar(mb);
+		this.add(mainImage);
 		
 		panel = new JPanel();
 		this.add(panel);
@@ -102,7 +110,8 @@ public class Haksa2 extends JFrame {
 			@Override	public void windowDeactivated(WindowEvent e) {}
 		});
 		
-		this.setSize(800,600);
+		//this.setSize(800,600);
+		this.pack();
 		this.setVisible(true);
 	}
 	
